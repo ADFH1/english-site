@@ -1,0 +1,517 @@
+/* ШРИФТЫ */
+@font-face {
+    font-family: 'Martian Grotesk';
+    /* Убедись, что файл лежит именно по этому пути и регистр букв совпадает */
+    src: url('fonts/MartianGrotesk-StdRg.ttf') format('truetype');
+    font-weight: 500;
+    font-display: swap;
+}
+
+:root {
+    --pink: #FFC0CB;
+    --dark: #1E1E1E;
+    --text-main: #323232;
+    --bg-page: #F9FBFB;
+    --shadow: 0px 0px 28px rgba(255, 192, 203, 0.25);
+    --font-h: 'Martian Grotesk', sans-serif;
+    --font-b: 'Onest', sans-serif;
+}
+
+/* ОБНУЛЕНИЕ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-b);
+    background: var(--bg-page);
+    color: var(--dark);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1284px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ТИПОГРАФИКА */
+h1 {
+    font-family: var(--font-h);
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 1.5;
+    margin-bottom: 36px;
+}
+
+.section-title {
+    font-family: var(--font-h);
+    font-weight: 500;
+    font-size: 32px;
+    margin-bottom: 16px;
+}
+
+h3 {
+    font-family: var(--font-h);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.section-subtitle {
+    color: var(--text-main);
+    font-size: 16px;
+    max-width: 1284px;
+    margin-bottom: 48px;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+/* КНОПКИ */
+.btn {
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 500;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+    border: none;
+    box-shadow: inset 0 0 0 1px transparent, 0 0 0 rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    padding: 12px 24px;
+    height: 48px;
+}
+
+.btn:hover {
+    transform: translateY(-5px);
+    box-shadow: inset 0 0 0 1px #D798A3, 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.btn-header,
+.btn-main {
+    background: var(--pink);
+    color: var(--dark);
+    font-size: 16px;
+}
+
+.btn.btn-outline {
+    background: transparent;
+    color: var(--pink);
+    border: 1px solid var(--pink);
+}
+
+.btn.btn-outline:hover {
+    background: var(--pink);
+    color: var(--dark);
+    box-shadow: 0 0 15px rgba(255, 192, 203, 0.4);
+}
+
+.btn-full {
+    width: 100%;
+    margin-top: auto;
+}
+
+/* HEADER */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 36px 0;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.logo-name {
+    font-family: var(--font-h);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.logo-sub {
+    color: var(--text-main);
+    font-size: 13px;
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.logo-icon {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+}
+
+/* NAV */
+.nav, .footer-nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav a, .footer-nav a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+    position: relative;
+    padding: 6px 0;
+    display: inline-block;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.nav a::after, .footer-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.2s ease-out, background-color 0.2s ease;
+}
+
+.nav a { color: var(--dark); }
+.nav a::after { background-color: #b3707c; }
+.nav a:hover { color: #b3707c; }
+.nav a:hover::after { width: 100%; }
+
+.footer-nav a { color: var(--text-main); }
+.footer-nav a::after { background-color: var(--pink); }
+.footer-nav a:hover { color: var(--pink); }
+.footer-nav a:hover::after { width: 100%; }
+
+/* HERO */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 0;
+}
+
+.hero-text { max-width: 747px; }
+
+.hero-desc {
+    font-size: 16px;
+    color: var(--text-main);
+    margin-bottom: 48px;
+    line-height: 1.6;
+}
+
+.hero-image img { width: 425px; }
+
+/* ПРЕИМУЩЕСТВА */
+.section { padding: 60px 0; }
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+}
+
+.benefit-card {
+    background: white;
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.benefit-card h3 { max-width: 175px; }
+
+.benefit-icon {
+    margin-bottom: 12px;
+    display: block; /* Исправлено для img */
+}
+
+.benefit-card p {
+    font-size: 16px;
+    color: var(--text-main);
+    margin-top: 12px;
+}
+
+/* ОБРАЗОВАНИЕ */
+.edu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+
+.edu-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.edu-info p {
+    color: var(--text-main);
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+/* ПЛАН ЗАНЯТИЯ */
+.price-grid {
+    display: flex;
+    gap: 60px;
+    align-items: stretch;
+}
+
+.price-card {
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    flex: 1;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    max-width: 616px;
+    min-height: 411px;
+}
+
+.price-card.featured {
+    outline: 2px solid var(--pink);
+    max-width: 343px;
+}
+
+.price-content p {
+    color: var(--text-main);
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.price-list ul { list-style: none; }
+.price-list li, .price-list p { line-height: 1.6; }
+.price-list p { margin-bottom: 10px; }
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-top: 1px solid #EFEFEF;
+}
+
+.price-item {
+    text-align: center;
+    flex: 1;
+}
+
+.price-val {
+    display: block;
+    font-size: 22px;
+    color: #b3707c;
+    font-weight: 600;
+    font-family: var(--font-b);
+}
+
+.price-sep { width: 24px; }
+
+/* ОТЗЫВЫ */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background: white;
+    padding: 24px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease-out;
+    border: 1px solid transparent;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    border: 1px solid var(--pink);
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.review-date, .review-footer {
+    font-size: 13px;
+    color: #9C9C9C;
+}
+
+.review-footer { margin-top: 12px; }
+.stars { color: #FFB800; }
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.author-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #F0F0F0;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.author-meta strong {
+    display: block;
+    font-family: var(--font-h);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.2;
+}
+
+/* КОНТАКТЫ */
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    width: 100%;
+}
+
+.social-card {
+    background: white;
+    padding: 20px 25px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 28px rgba(255, 192, 203, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #323232;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 20px rgba(255, 192, 203, 0.4);
+}
+
+.social-card img {
+    width: 24px; /* Размер иконок соцсетей */
+    height: 24px;
+}
+
+/* ФУТЕР */
+.footer {
+    background: #1E1E1E;
+    color: white;
+    padding: 70px 0 40px;
+    margin-top: 80px;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #333;
+    margin-bottom: 40px;
+}
+
+.footer .logo-name, .footer .logo-sub { color: white; }
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.copy-main {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.copy-sub {
+    font-size: 13px;
+    opacity: 0.6;
+}
+
+.footer-dev {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.dev-img {
+    width: 150px;
+    height: auto;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.footer-dev:hover .dev-icon-wrapper {
+    filter: drop-shadow(0 0 10px rgba(255, 192, 203, 0.5));
+}
+
+.footer-dev:hover .copy-sub {
+    color: #FFC0CB;
+    opacity: 1;
+}
+
+/* АДАПТИВ */
+@media (max-width: 1024px) {
+    .btn-header { display: none !important; }
+    .header.container { padding: 36px; }
+    .hero { padding: 60px 0; gap: 30px; }
+    .hero-image img { width: 320px; }
+    .price-grid { gap: 24px; }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+    .section { padding: 40px 20px; text-align: center; }
+    .hero-image { display: none !important; }
+    .header { flex-direction: column; gap: 20px; }
+    .nav { justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .hero { text-align: center; padding: 20px 0; }
+    .benefits-grid, .reviews-grid, .social-grid { grid-template-columns: 1fr; }
+    .price-grid { flex-direction: column; align-items: center; }
+    .price-card { max-width: 100%; min-height: auto; }
+    .social-card { width: 100%; max-width: 400px; justify-content: center; }
+    .footer-top, .footer-bottom { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+    .footer-nav { flex-direction: column; gap: 16px; }
+    .footer-dev { margin: 0 auto; }
+    h1 { font-size: 24px; }
+    .edu-item img { display: none !important; }
+}
